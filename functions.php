@@ -142,4 +142,10 @@ function checkAuthenticate()
     }
 
     // End 
+
 }
+
+function printFailure($message = "none")
+    {
+        echo json_encode(array("status" => "failuer" , "message" => $message)) ;
+    }
