@@ -149,3 +149,11 @@ function printFailure($message = "none")
     {
         echo json_encode(array("status" => "failuer" , "message" => $message)) ;
     }
+
+function sendEmail( $to , $title , $body){
+
+$header = "From: support@yamni.com" ."\n" . "CC: yamni.zero@gamil.com:" ;
+mail($to,$title,$body, $header) ;
+
+
+}
