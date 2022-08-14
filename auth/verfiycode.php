@@ -1,24 +1,26 @@
-<?php
+<?php 
 
-include "../connect.php";
+include "../connect.php" ;
 
-$email = filterRequest("email") ;
-$verfiy = filterRequest("verfiycode") ;
+$email  = filterRequest("email") ; 
+
+$verfiy = filterRequest("verifycode") ; 
 
 
-$stmt = $con->prepare("SELECT * FROM users WHERE users_email = '$email' AND users_verfiycode = '$verfiy' ");
-$stmt->execute() ;
+$stmt = $con->prepare("SELECT * FROM users WHERE users_email = '$email' AND users_verfiycode = '$verfiy' ") ; 
+ 
+$stmt->execute() ; 
 
-$count  =$stmt->rowCount();
+$count = $stmt->rowCount() ; 
 
-if($count > 0){
+if ($count > 0) {
+ 
+    $data = array("users_approve" => "1") ; 
 
-    $data = array("users_approve" => "1" );
     updateData("users" , $data , "users_email = '$email'");
-}else{
 
-    printFailure("verfiycode not Correct ");
+}else {
+ printFailure("verifycode not Correct") ; 
+
 }
-
-
 ?>
