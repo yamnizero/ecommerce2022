@@ -6,7 +6,7 @@ $username = filterRequest("username");
 $password = sha1("password");
 $email = filterRequest("email");
 $phone = filterRequest("phone");
-$verfiycode = rand(10000 , 999999);
+$verfiycode = rand(10000 , 99999);
 
 $stmt = $con->prepare("SELECT * FROM users WHERE users_email = ? OR users_phone = ? ");
 $stmt->execute(array($email, $phone));
