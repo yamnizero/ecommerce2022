@@ -9,7 +9,7 @@ $categoryId = filterRequest("id");
 
 $userid = filterRequest("usersid");
 
-
+  
 //favorite
 $stmt = $con->prepare("SELECT items1view.* , 1 as favorite , (items_price -(items_price * items_discount / 100 )) as itemspricediscount FROM items1view
 INNER JOIN favorite ON favorite.favorite_itemsid = items1view.items_id AND favorite.favorite_usersid = $userid
