@@ -4,7 +4,7 @@
 
  $table     = "address";
  $addressid = filterRequest("addressid") ;
- $name = filterRequest("name") ;
+ $name      = filterRequest("name") ;
  $city      = filterRequest("city") ;
  $street    = filterRequest("street") ;
  $lat       = filterRequest("lat") ;
