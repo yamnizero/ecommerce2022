@@ -8,7 +8,17 @@ $orderstype = filterRequest("orderstype") ;
 $pricedelivery = filterRequest("pricedelivery") ;
 $ordersprice = filterRequest("ordersprice") ;
 $couponid = filterRequest("couponid") ;
+$couponDiscount = filterRequest("couponDiscount") ;
 $paymentmethod = filterRequest("paymentmethod") ;
+
+
+
+///chek Coupone
+
+$now = date("Y-m-d H:i:s");
+
+
+getData("coupon" , "coupon_id = '$couponid' AND coupon_expiredate > '$now' AND coupon_count > 0");
 
 $data = array(
     "orders_usersid"  => $usersid,
@@ -21,7 +31,7 @@ $data = array(
 
 );
 
-$count = insertData("orders", $data,  false) ;
+$count = insertData("orders", $data, false) ;
 
 if($count > 0){
     $stmt = $con->prepare("SELECT MAX(orders_id) from orders ");
