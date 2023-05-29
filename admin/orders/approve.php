@@ -12,7 +12,8 @@ $data = array(
 );
 updateData("orders" ,$data ,"orders_id =$orderid AND orders_status = 0 ");
 
-sendGCM("success" , "The Order Has been Approved" ,"users$userid", "none" , "refreshOrderPending");
+//sendGCM("success" , "The Order Has been Approved" ,"users$userid", "none" , "refreshOrderPending");
+insertNotify("success", "The Order Has been Approved",$userid , "users$userid", "none"  , "refreshOrderPending");
 
 
 ?>
