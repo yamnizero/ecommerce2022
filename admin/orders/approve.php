@@ -1,14 +1,18 @@
 <?php
 
-include "../connect.php";
+include "../../connect.php";
 
-$orderid =filterRequest("orderid");
+$orderid =filterRequest("ordersid");
+
+$userid =filterRequest("usersid");
 
 
 $data = array(
-    "order_status" =>  1
+    "orders_status" =>  1
 );
-updateData("orders" ,$data ,"orders_id =$orderid AND order_status = 0 ");
+updateData("orders" ,$data ,"orders_id =$orderid AND orders_status = 0 ");
+
+sendGCM("success" , "The Order Has been Approved" ,"users$userid", "none" , "refreshOrderPending");
 
 
 ?>
